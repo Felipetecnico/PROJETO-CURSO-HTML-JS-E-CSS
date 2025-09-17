@@ -1,0 +1,89 @@
+const imoveis = [
+  {
+    id: 1,
+    titulo: "Apartamento moderno no centro",
+    cidade: "São Paulo",
+    tipo: "Apartamento",
+    preco: 320000,
+    imagem: "https://diariodorio.com/wp-content/uploads/2017/07/Fachada-RS-1.jpg",
+    descricao: "2 quartos, 1 suíte, varanda gourmet, perto do metrô."
+  },
+  {
+    id: 2,
+    titulo: "Casa espaçosa com quintal",
+    cidade: "Curitiba",
+    tipo: "Casa",
+    preco: 450000,
+    imagem: "https://i.ytimg.com/vi/Tlr8yd50cus/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDwRNHSPA-BKZHaYS10XnKaCDnwRg",
+    descricao: "3 quartos, 2 banheiros, garagem, churrasqueira."
+  },
+  {
+    id: 3,
+    titulo: "Casas com vista para o mar",
+    cidade: "Rio de Janeiro",
+    tipo: "Casa",
+    preco: 650000,
+    imagem: "https://www.holmy.com.br/wp-content/uploads/2022/01/4aa2d2aa-f35c-4d6a-90c2-e9dccd7738d6.jpg",
+    descricao: "Frente mar, 2 quartos, área de lazer completa."
+  },
+{
+    id: 4,
+    titulo: "Sitio com piscina",
+    cidade: "Belo Horizonte",
+    tipo: "Casa",
+    preco: 2300000,
+    imagem: "https://plus.unsplash.com/premium_photo-1687960116592-b7373fb65f12?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+   
+    descricao: "2 quartos, área de lazer completa."
+  }
+];
+
+function renderImoveis(lista) {
+  const container = document.getElementById("lista-imoveis");
+  container.innerHTML = "";
+
+  lista.forEach(imovel => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+      <img src="${imovel.imagem}" alt="${imovel.titulo}">
+      <h3>${imovel.titulo}</h3>
+      <p>${imovel.cidade} • ${imovel.tipo}</p>
+      <strong>R$ ${imovel.preco.toLocaleString()}</strong>
+      <button onclick="abrirModal(${imovel.id})">Ver detalhes</button>
+    `;
+
+    container.appendChild(card);
+  });
+}
+
+function filtrar() {
+  const cidade = document.getElementById("filtro-cidade").value.toLowerCase();
+  const tipo = document.getElementById("filtro-tipo").value.toLowerCase();
+
+  const resultado = imoveis.filter(imovel =>
+    imovel.cidade.toLowerCase().includes(cidade) &&
+    imovel.tipo.toLowerCase().includes(tipo)
+  );
+
+  renderImoveis(resultado);
+}
+
+function abrirModal(id) {
+  const imovel = imoveis.find(item => item.id === id);
+  const modal = document.getElementById("modal");
+
+  modal.querySelector("h2").textContent = imovel.titulo;
+  modal.querySelector("p").textContent = imovel.descricao;
+  modal.querySelector("img").src = imovel.imagem;
+
+  modal.classList.add("ativo");
+}
+
+function fecharModal() {
+  document.getElementById("modal").classList.remove("ativo");
+}
+
+// Inicializar página
+renderImoveis(imoveis);
