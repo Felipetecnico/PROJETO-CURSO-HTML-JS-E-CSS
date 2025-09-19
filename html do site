@@ -29,7 +29,7 @@
                <!-- Campo de busca -->
 <div id="divBusca" style="margin: 20px; text-align: center;">
   <img src="search3.png" alt="Buscar..." style="width:20px; vertical-align:middle;"/>
-  <input type="text" id="txtBusca" placeholder="Buscar cidade..." />
+  <input type="text" id="txtBusca" placeholder="Buscar por cidade..." />
   <button id="btnBusca">Buscar</button>
 </div>
 
