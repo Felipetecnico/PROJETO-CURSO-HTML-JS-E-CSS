@@ -328,6 +328,7 @@ Anunciar imóveis de forma estratégica, com descrições claras e fotos de qual
 
 
 <section class="carousel" aria-label="Galeria">
+
   <ol class="carousel__viewport">
     <li id="slide1" class="carousel__slide">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB6OIMVfKzk3rTX30x-Tf5pkbOnz3IuUGaBw&s" alt="Imagem 1">
@@ -489,7 +490,7 @@ Anunciar imóveis de forma estratégica, com descrições claras e fotos de qual
                                     <!-- Portfolio Modal - Title-->
                                     <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Apartamento</h2>
                                     <!-- Icon Divider-->
-                                    <h5>lazer instantaneo</h5>
+                                    <h5>Residencia espacosa</h5>
                                    	
                                     
                                     <!-- Icon Divider-->
