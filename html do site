@@ -1,43 +1,655 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ImobiFácil - Seu lar, do seu jeito!</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <h1>ImobiFácil</h1>
-    <p>Encontre o imóvel ideal para você!</p>
-  </header>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Freelancer - Start Bootstrap Theme</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top">ImobiFacil soluções</a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+               <!-- Campo de busca -->
+<div id="divBusca" style="margin: 20px; text-align: center;">
+  <img src="search3.png" alt="Buscar..." style="width:20px; vertical-align:middle;"/>
+  <input type="text" id="txtBusca" placeholder="Buscar cidade..." />
+  <button id="btnBusca">Buscar</button>
+</div>
 
-  <section class="filtros">
-    <input type="text" id="filtro-cidade" placeholder="Filtrar por cidade" oninput="filtrar()" />
-    <select id="filtro-tipo" onchange="filtrar()">
-      <option value="">Todos os tipos</option>
-      <option value="Casa">Casa</option>
-      <option value="Apartamento">Apartamento</option>
-    </select>
-  </section>
+<!-- Script de busca -->
+<script>
+  document.getElementById("btnBusca").addEventListener("click", function () {
+    let termo = document.getElementById("txtBusca").value.toLowerCase();
+    let imoveis = document.querySelectorAll(".portfolio-item");
 
-  <main id="lista-imoveis" class="grid-container">
-    <!-- JS irá carregar os cards -->
-  </main>
+    imoveis.forEach(function (item) {
+      let cidade = item.querySelector("h4").innerText.toLowerCase();
+      if (cidade.includes(termo) || termo === "") {
+        item.parentElement.style.display = "block"; // mostra
+      } else {
+        item.parentElement.style.display = "none"; // esconde
+      }
+    });
+  });
 
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="fecharModal()">&times;</span>
-      <img src="" alt="Imagem do imóvel" />
-      <h2></h2>
-      <p></p>
-    </div>
-  </div>
+  // Ativa busca ao digitar (opcional)
+  document.getElementById("txtBusca").addEventListener("keyup", function (e) {
+    if (e.key === "Enter") {
+      document.getElementById("btnBusca").click();
+    }
+  });
+</script>
 
-  <footer>
-    <p>&copy; 2025 ImobiFácil. Todos os direitos reservados.</p>
-  </footer>
 
-  <script src="script.js"></script>
-</body>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Casas e apartamentos a venda</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">Quem somos</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Avatar Image-->
+                <img class="masthead-avatar mb-5" src="https://cdn.freebiesupply.com/logos/thumbs/2x/if-3-logo.png" alt="..." />
+                <h1 class="masthead-heading text-uppercase mb-0">IMOVEIS A VENDA</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Masthead Subheading-->
+                <p class="masthead-subheading font-weight-light mb-0">Seguro - Atualizado - Catalogado</p>
+            </div>
+        </header>
+        <!-- Portfolio Section-->
+        <section class="page-section portfolio" id="portfolio">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">CATALOGO</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Grid Items-->
+                <div class="row justify-content-center">
+                    <!-- Portfolio Item 1-->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="https://projetaronline.com/wp-content/uploads/2025/04/P466-FOTOS_11-Foto-1024x576.jpg" alt="..." />
+                             <center><h4>Santa luzia-MG</h4>
+                                           <h5>R$992.000</h5>
+                             </p>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 2-->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="https://img.olx.com.br/images/29/293566609903837.jpg" alt="..." />
+                            <center><h4>Jaboticatubas-MG</h4>
+                        <h5>R$780.000</h5>
+                            </div> 
+                    </div>
+                    <!-- Portfolio Item 3-->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="https://incorporebr.com.br/wp-content/uploads/2022/12/INCORPORE-BLOG-1.png" alt="..." />
+                        <center><h4>Guarulhos-São Paulo-SP</h4>
+                        <h5>R$90.000</h5>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 4-->
+                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="https://img.olx.com.br/images/25/253521200200579.jpg" alt="..." />
+                        <center><h4>Copacabana-RJ</h4>
+                        <h5>R$75.000</h5>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 5-->
+                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="https://i.pinimg.com/736x/60/57/22/605722672724fe0291786c131e63e868.jpg" alt="..." />
+                        <center><h4>Campinas-SP</h4>
+                        <h5>R$450.000</h5>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 6-->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="https://renzeti.com.br/uploads/imoveis/0000041_zoom_screenshot_3.jpg" alt="..." />
+                        <center><h4>Vespasiano-MG</h4>
+                        <h5>R$780.000,000</h5>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+         
+        </section>
+      
+        <!-- About Section-->
+        
+        <section class="page-section bg-primary text-white mb-0" id="about">
+            <div class="container">
+                <!-- About Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-white">O que fazemos?</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- About Section Content-->
+                <div class="row">
+                    <div class="col-lg-4 ms-auto"><p class="lead">A IMOBEFÁCIL é uma empresa especializada na divulgação e promoção de imóveis, atuando como ponte entre proprietários e pessoas interessadas em comprar ou alugar.
+Dar visibilidade às ofertas em sites, redes sociais e outros canais de comunicação.</p></div>
+                    <div class="col-lg-4 me-auto"><p class="lead">Em resumo, a IMOBEFÁCIL existe para tornar a busca e a divulgação de imóveis mais rápida, fácil e eficiente.Seu trabalho consiste em:
+
+Anunciar imóveis de forma estratégica, com descrições claras e fotos de qualidade</p></div>
+                </div>
+                <!-- About Section Button-->
+                <div class="text-center mt-4">
+                    <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/theme/freelancer/">
+                        <i class="fas fa-download me-2"></i>
+                        Free Download!
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section-->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <!-- Contact Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Me contate para anunciar seu imovel a venda</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Contact Section Form-->
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-xl-7">
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- * * SB Forms Contact Form * *-->
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- This form is pre-integrated with SB Forms.-->
+                        <!-- To make this form functional, sign up at-->
+                        <!-- https://startbootstrap.com/solution/contact-forms-->
+                        <!-- to get an API token!-->
+                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                            <!-- Name input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                <label for="name">Nome completo</label>
+                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                            </div>
+                            <!-- Email address input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                                <label for="email">Seu Email </label>
+                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                            </div>
+                            <!-- Phone number input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                                <label for="phone">Numero de contato</label>
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                            </div>
+                            <!-- Message input-->
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                                <label for="message">Descrição do anuncio</label>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                            </div>
+                            <!-- Submit success message-->
+                            <!---->
+                            <!-- This is what your users will see when the form-->
+                            <!-- has successfully submitted-->
+                            <div class="d-none" id="submitSuccessMessage">
+                                <div class="text-center mb-3">
+                                    <div class="fw-bolder">Form submission successful!</div>
+                                    To activate this form, sign up at
+                                    <br />
+                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                </div>
+                            </div>
+                            <!-- Submit error message-->
+                            <!---->
+                            <!-- This is what your users will see when there is-->
+                            <!-- an error submitting the form-->
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                            <!-- Submit Button-->
+                            <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer text-center">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Location-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Localização</h4>
+                        <p class="lead mb-0">
+                            Rua benevides caetano da silva
+                            <br />
+                            Betim-MG
+                        </p>
+                    </div>
+                    <!-- Footer Social Icons-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Acessos da loja</h4>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/"><i class="fab fa-fw fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
+                    </div>
+                    <!-- Footer About Text-->
+                    <div class="col-lg-4">
+                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                        <p class="lead mb-0">
+                            Nosso site é livre para utilização sem custos, para ajudaria de mais se contribuisse para a melhora do mesmo no pix abaixo
+                            <a href="http://startbootstrap.com">PIXSOLIDARIO</a>
+                            .
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Copyright Section-->
+        <div class="copyright py-4 text-center text-white">
+            <div class="container"><small>Copyright &copy; Your Website 2023</small></div>
+        </div>
+        <!-- Portfolio Modals-->
+        <!-- Portfolio Modal 1-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Grande casa</h2>
+                                    <h5>Residencia espacosa</h5>	
+                                   
+
+<p>Cozinha, 1 quarto para casal, varanda e banheiro</p>
+
+
+
+<section class="carousel" aria-label="Galeria">
+  <ol class="carousel__viewport">
+    <li id="slide1" class="carousel__slide">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB6OIMVfKzk3rTX30x-Tf5pkbOnz3IuUGaBw&s" alt="Imagem 1">
+    </li>
+    <li id="slide2" class="carousel__slide">
+      <img src="https://images.tcdn.com.br/img/img_prod/1094519/cozinha_modulada_da_casa_1_1_240005fa4d5f5bec347eb7b8e383274e.jpg" alt="Imagem 2">
+    </li>
+    <li id="slide3" class="carousel__slide">
+      <img src="https://images.homify.com/v1591455608/p/photo/image/3513203/10.jpg" alt="Imagem 3">
+    </li>
+    <li id="slide4" class="carousel__slide">
+      <img src="https://tokemcasa.tokstok.com.br/wp-content/uploads/2020/08/varanda-com-rede.jpg" alt="Imagem 4">
+    </li>
+  </ol>
+
+  <!-- Navegação por bolinhas -->
+  <aside class="carousel__navigation"></aside>
+    <ol>
+      <li><a href="#slide1">•</a></li>
+      <li><a href="#slide2">•</a></li>
+      <li><a href="#slide3">•</a></li>
+      <li><a href="#slide4">•</a></li>
+    </ol>
+  </aside>
+</section>
+                                  <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          
+          </div>
+          
+        </div>
+        <!-- Portfolio Modal 2-->
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Sitio</h2>
+                                    <h5>lazer instantaneo</h5>
+                                    <p>Sala grande, Cozinha grande, 1 quarto com multiplas camas, area de lazer com piscina </p>	
+                                    
+                                    <!-- Icon Divider-->
+                                    <section class="carousel" aria-label="Galeria">
+  <ol class="carousel__viewport">
+    <li id="slide1" class="carousel__slide">
+      <img src="https://vgprojetos.com/wp-content/uploads/2021/11/P1-IMG-8.jpg.webp" alt="Imagem 1">
+    </li>
+    <li id="slide2" class="carousel__slide">
+      <img src="https://images.homify.com/v1464634045/p/photo/image/1528885/Leo_28.jpg" alt="Imagem 2">
+    </li>
+    <li id="slide3" class="carousel__slide">
+      <img src="https://likemagazine.com.br/midias/2025/04/Banheiro-simples-com-decoracao-atemporal-@lardoce.e.lar-Like-Magazine.jpg" alt="Imagem 3">
+    </li>
+    <li id="slide4" class="carousel__slide">
+      <img src="https://dynamic-media.tacdn.com/media/vr-splice-j/10/48/9c/eb.jpg?w=800&h=-1" alt="Imagem 4">
+    </li>
+    <li id="slide5" class="carousel__slide">
+      <img src="https://media-cdn.tripadvisor.com/media/photo-s/05/b1/be/a6/sitio-recanto-das-palmeiras.jpg" alt="Imagem 5">
+    </li>
+  </ol>
+
+  <!-- Navegação por bolinhas -->
+ <aside class="carousel__navigation"></aside>
+    <ol>
+      <li><a href="#slide1">•</a></li>
+      <li><a href="#slide2">•</a></li>
+      <li><a href="#slide3">•</a></li>
+      <li><a href="#slide4">•</a></li>
+    </ol>
+  </aside>
+</section>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio Modal 3-->
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Apartamento</h2>
+                                    <!-- Icon Divider-->
+                                   
+                                    <h5>lazer instantaneo</h5></p>	
+                                    
+                                    <!-- Icon Divider-->
+                                    <section class="carousel" aria-label="Galeria">
+  <ol class="carousel__viewport">
+    <li id="slide1" class="carousel__slide">
+      <img src="https://www.quintoandar.com.br/img/med/895093105-583.9358064132321IMG1694.jpg" alt="Imagem 1">
+    </li>
+    <li id="slide2" class="carousel__slide">
+      <img src="https://i.pinimg.com/736x/88/ed/a2/88eda251091629d15c6577fad8c593d8.jpg" alt="Imagem 2">
+    </li>
+    <li id="slide3" class="carousel__slide">
+      <img src="https://arquitetodebolso.com.br/wp-content/uploads/2024/07/decoracao-de-banheiro-pequeno.jpeg" alt="Imagem 3">
+    </li>
+    <li id="slide4" class="carousel__slide">
+      <img src="https://www.paisagismoemfoco.com.br/images/materias_julho/Jardins_na_Varadas_-_Luiz_Felipe_e_Luiz_Gustavo_1.jpg" alt="Imagem 4">
+    </li>
+    <li id="slide5" class="carousel__slide">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR9MIkzB_eodKZJ2aGL8ewmATm1NEAWJ-ZsQ&s" alt="Imagem 5">
+    </li>
+  </ol>
+
+  <!-- Navegação por bolinhas -->
+ <aside class="carousel__navigation"></aside>
+    <ol>
+      <li><a href="#slide1">•</a></li>
+      <li><a href="#slide2">•</a></li>
+      <li><a href="#slide3">•</a></li>
+      <li><a href="#slide4">•</a></li>
+    </ol>
+  </aside>
+</section>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio Modal 4-->
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Apartamento</h2>
+                                    <!-- Icon Divider-->
+                                    <h5>lazer instantaneo</h5>
+                                   	
+                                    
+                                    <!-- Icon Divider-->
+                                    <section class="carousel" aria-label="Galeria">
+  <ol class="carousel__viewport">
+    <li id="slide1" class="carousel__slide">
+      <img src="https://i.pinimg.com/originals/1f/ec/a0/1feca066648af6559e7848fd53cf406f.jpg" alt="Imagem 1">
+    </li>
+    <li id="slide2" class="carousel__slide">
+      <img src="https://marquesconstrutora.com.br/blog/wp-content/uploads/2018/09/imagem-decorac%CC%A7a%CC%83o-banheiro-pequeno-2-1000x660.jpg" alt="Imagem 2">
+    </li>
+    <li id="slide3" class="carousel__slide">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4-y0G5eb4OrNE1BPJ3EzvCke5-Jn0SJDaxg&s" alt="Imagem 3">
+    </li>
+    <li id="slide4" class="carousel__slide">
+      <img src="https://www.paisagismoemfoco.com.br/images/materias_julho/Jardins_na_Varadas_-_Luiz_Felipe_e_Luiz_Gustavo_1.jpg" alt="Imagem 4">
+    </li>
+    <li id="slide5" class="carousel__slide">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR9MIkzB_eodKZJ2aGL8ewmATm1NEAWJ-ZsQ&s" alt="Imagem 5">
+    </li>
+  </ol>
+
+  <!-- Navegação por bolinhas -->
+ <aside class="carousel__navigation"></aside>
+    <ol>
+      <li><a href="#slide1">•</a></li>
+      <li><a href="#slide2">•</a></li>
+      <li><a href="#slide3">•</a></li>
+      <li><a href="#slide4">•</a></li>
+    </ol>
+  </aside>
+</section>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio Modal 5-->
+        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Casa</h2>
+                                    <!-- Icon Divider-->
+                                    <h5>lazer instantaneo</h5>
+                                   	
+                                    
+                                    <!-- Icon Divider-->
+                                    <section class="carousel" aria-label="Galeria">
+  <ol class="carousel__viewport">
+    <li id="slide1" class="carousel__slide">
+      <img src="https://images.tcdn.com.br/img/img_prod/1094519/cozinha_modulada_da_casa_1_1_240005fa4d5f5bec347eb7b8e383274e.jpg" alt="Imagem 1">
+    </li>
+    <li id="slide2" class="carousel__slide">
+      <img src="https://i.pinimg.com/736x/61/b8/ef/61b8efb7acd553aefca5474e7c6d5d0e.jpg" alt="Imagem 2">
+    </li>
+    <li id="slide3" class="carousel__slide">
+      <img src="https://imgs.casasbahia.com.br/1565153041/1xg.jpg" alt="Imagem 3">
+    </li>
+    <li id="slide4" class="carousel__slide">
+      <img src="https://finger.ind.br/wp-content/uploads/2021/08/post_thumbnail-a604185952a2859240903c1b2af3cd7c.jpg" alt="Imagem 4">
+    </li>
+ 
+    </li>
+  </ol>
+
+  <!-- Navegação por bolinhas -->
+ <aside class="carousel__navigation"></aside>
+    <ol>
+      <li><a href="#slide1">•</a></li>
+      <li><a href="#slide2">•</a></li>
+      <li><a href="#slide3">•</a></li>
+      <li><a href="#slide4">•</a></li>
+    </ol>
+  </aside>
+</section>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio Modal 6-->
+        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Casa</h2>
+                                    <!-- Icon Divider-->
+                                    <h5>lazer instantaneo</h5>
+                                    	
+                                    
+                                    <!-- Icon Divider-->
+                                    <section class="carousel" aria-label="Galeria">
+  <ol class="carousel__viewport">
+    <li id="slide1" class="carousel__slide">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2zUWxJLaHBSIoCMQNFOxoqj_BKeSZOii1LQ&s" alt="Imagem 1">
+    </li>
+    <li id="slide2" class="carousel__slide">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB3Rg9dv8nfT6ty-WBpXJb29m1lO3GXbYscg&s" alt="Imagem 2">
+    </li>
+    <li id="slide3" class="carousel__slide">
+      <img src="https://finger.ind.br/wp-content/uploads/2023/10/post-thumbnail-c3d159a47717d58edcf98f775bb66910.jpeg" alt="Imagem 3">
+    </li>
+    <li id="slide4" class="carousel__slide">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuGVb9nTnzeKsIF8oarIldA-V16XPKeYPNTA&s" alt="Imagem 4">
+    </li>
+
+    </li>
+  </ol>
+
+  <!-- Navegação por bolinhas -->
+ <aside class="carousel__navigation"></aside>
+    <ol>
+      <li><a href="#slide1">•</a></li>
+      <li><a href="#slide2">•</a></li>
+      <li><a href="#slide3">•</a></li>
+      <li><a href="#slide4">•</a></li>
+    </ol>
+  </aside>
+</section>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
 </html>
