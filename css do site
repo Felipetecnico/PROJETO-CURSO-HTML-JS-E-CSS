@@ -92,8 +92,9 @@
 }
 
 body {
-  background-color: rgb(red, green, blue);
-  margin: 0;
+  background: #13136d;
+ background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 36%, rgba(0, 212, 255, 1) 100%);
+
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
@@ -1120,6 +1121,7 @@ progress {
   .col-md-6 {
     flex: 0 0 auto;
     width: 50%;
+   
   }
   .col-md-7 {
     flex: 0 0 auto;
@@ -3238,7 +3240,7 @@ textarea.form-control-lg {
   --bs-dropdown-link-disabled-color: #adb5bd;
   --bs-dropdown-item-padding-x: 1rem;
   --bs-dropdown-item-padding-y: 0.25rem;
-  --bs-dropdown-header-color: #6c757d;
+  --bs-dropdown-header-color: #241e83;
   --bs-dropdown-header-padding-x: 1rem;
   --bs-dropdown-header-padding-y: 0.5rem;
   position: absolute;
@@ -3501,7 +3503,7 @@ textarea.form-control-lg {
   --bs-dropdown-link-active-color: #fff;
   --bs-dropdown-link-active-bg: #1abc9c;
   --bs-dropdown-link-disabled-color: #adb5bd;
-  --bs-dropdown-header-color: #adb5bd;
+  --bs-dropdown-header-color: #201163;
 }
 
 .btn-group,
@@ -10935,7 +10937,8 @@ html {
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
     color: #fff;
-    background: #1abc9c;
+    background: #020024;
+background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 36%, rgba(0, 212, 255, 1) 100%);
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
     color: #fff;
@@ -10968,6 +10971,7 @@ html {
 }
 
 .masthead {
+  background-color: #020024;
   padding-top: calc(6rem + 74px);
   padding-bottom: 6rem;
 }
@@ -11059,10 +11063,15 @@ html {
 
 
 
-
+.Vermais {
+  color:black;
+  background-color:white;
+}
 
 
 body {
+ background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 36%, rgba(0, 212, 255, 1) 100%);
+
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
@@ -11128,3 +11137,13 @@ body {
 .carousel__navigation a:hover {
   opacity: 1;
 }
+
+
+
+
+
+
+
+
+
+
